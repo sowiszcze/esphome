@@ -1,2 +1,2 @@
 # esphome
- ESPHome devices from my smart home
+ESPHome devices from my smart home
