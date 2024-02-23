@@ -1,0 +1,89 @@
+substitutions:
+  device_name: uart-eastron-sdm120m
+  friendly_name: Home Power Meter
+  area: Home
+
+esphome:
+  name: ${device_name}
+  friendly_name: ${friendly_name}
+  area: ${area}
+  project:
+    name: sowiszcze.sdm120m-meter
+    version: dev
+
+esp32:
+  board: esp32dev
+  framework: # https://github.com/esphome/issues/issues/3912#issuecomment-1367231053
+    type: arduino
+    version: latest
+
+packages:
+  base: !include ../esphome-elements/device.base.yaml
+  logger_off: !include ../esphome-elements/settings.uart-logger-off.yaml
+  hass_time: !include ../esphome-elements/components/general.hass-time.yaml
+
+# UART configuration
+uart:
+  id: uart_modbus_sdm
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 2400
+  parity: EVEN
+  debug:
+    sequence:
+      - lambda: UARTDebug::log_hex(direction, bytes, ' ');
+
+modbus:
+  id: modbus_sdm
+  uart_id: uart_modbus_sdm
+  flow_control_pin: GPIO32
+  send_wait_time: 500ms # https://github.com/esphome/issues/issues/3912#issuecomment-1366986595
+
+# SDM120M sensor configuration
+sensor:
+  - platform: sdm_meter
+    phase_a:
+      current:
+        name: Current
+      voltage:
+        name: Voltage
+      active_power:
+        name: Power
+        id: power
+      power_factor:
+        name: Power Factor
+      apparent_power:
+        name: Apparent Power
+      reactive_power:
+        name: Reactive Power
+      phase_angle:
+        name: Phase Angle
+    frequency:
+      name: Frequency
+    total_power:
+      name: Total Power
+    import_active_energy:
+      name: Import Active Energy
+    export_active_energy:
+      name: Export Active Energy
+    import_reactive_energy:
+      name: Import Reactive Energy
+    export_reactive_energy:
+      name: Export Reactive Energy
+    modbus_id: modbus_sdm
+    address: 1
+# Power related sensors
+  - platform: total_daily_energy
+    name: Daily Energy
+    power_id: power
+    unit_of_measurement: kWh
+    accuracy_decimals: 5
+    filters:
+      - multiply: 0.001
+
+# Status light on GPIO2
+#light:
+#  - platform: status_led
+#    name: State
+#    pin: GPIO2
+#    internal: True

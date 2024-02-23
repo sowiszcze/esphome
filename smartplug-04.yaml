@@ -1,0 +1,53 @@
+substitutions:
+  # Customization
+  device_name: smartplug-04
+  device_id: "100"
+  friendly_name: Prusa i3 Mk3S+ Plug
+  area: Office
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.smartplug-generic.yaml
+    vars:
+      # Device settings and overrides
+      current_res: 0.00117
+      voltage_div: 755
+      max_power: 3450
+      # Device pinout
+      red_led: GPIO0
+      blue_led: GPIO2
+      cf1_pin: GPIO4
+      cf_pin: GPIO5
+      sel_pin: GPIO12
+      button_pin: GPIO13
+      relay_pin: GPIO15
+
+sensor:
+  - id: !extend current
+    filters:
+      - calibrate_linear:
+        - 0.021 -> 0.012
+        - 0.545 -> 0.525
+        - 0.565 -> 0.536
+        - 0.574 -> 0.562
+        - 0.578 -> 0.584
+        - 0.640 -> 0.619
+      - lambda: if (x < 0) return 0; else return x;
+  - id: !extend voltage
+    filters:
+      - calibrate_linear:
+        - 0.0 -> 0.0
+        - 220.8 -> 226.7
+        - 221.2 -> 226.9
+  - id: !extend power
+    filters:
+      - calibrate_linear:
+        - 0 -> 0.94
+        - 47 -> 25.27
+        - 51 -> 27.16
+        - 55 -> 29.34
+        - 68 -> 36.09
+        - 86 -> 45.27
+        - 115 -> 59.33
+        - 135 -> 70.61
+      - lambda: if (x < 0) return 0; else return x;

@@ -1,0 +1,62 @@
+substitutions:
+  # Customization
+  device_name: smartplug-02
+  device_id: "98"
+  friendly_name: Dishwasher Plug
+  area: Kitchen
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.smartplug-generic.yaml
+    vars:
+      # Device settings and overrides
+      current_res: 0.00117
+      voltage_div: 755
+      max_power: 3450
+      # Device pinout
+      red_led: GPIO0
+      blue_led: GPIO2
+      cf1_pin: GPIO4
+      cf_pin: GPIO5
+      sel_pin: GPIO12
+      button_pin: GPIO13
+      relay_pin: GPIO15
+
+sensor:
+  - id: !extend current
+    filters:
+      - calibrate_linear:
+        - 0.281 -> 0.281
+        - 0.144 -> 0.135
+        - 0.025 -> 0.003
+        - 0.561 -> 0.505
+        - 0.578 -> 0.523
+        - 0.594 -> 0.537
+        - 0.652 -> 0.563
+        - 0.619 -> 0.562
+        - 0.636 -> 0.569
+        - 0.656 -> 0.575
+        - 0.652 -> 0.586
+        - 8.781 -> 8.036
+      - lambda: if (x < 0) return 0; else return x;
+  - id: !extend voltage
+    filters:
+      - calibrate_linear:
+        - 0.0 -> 0.0
+        - 227.6 -> 222.2
+        - 233.3 -> 228.0
+  - id: !extend power
+    filters:
+      - calibrate_linear:
+        - 71 -> 33.94
+        - 36 -> 17.02
+        - 49 -> 24.00
+        - 56 -> 26.97
+        - 62 -> 30.20
+        - 78 -> 37.05
+        - 76 -> 36.86
+        - 94 -> 44.66
+        - 115 -> 54.98
+        - 139 -> 66.19
+        - 3753 -> 1791.1
+      - lambda: if (x < 0) return 0; else return x;

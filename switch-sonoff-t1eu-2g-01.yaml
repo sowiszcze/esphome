@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-t1eu-2g-01
+  device_id: "81"
+  friendly_name: Office Wall Switch
+  area: Office
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-t1eu-2g.yaml

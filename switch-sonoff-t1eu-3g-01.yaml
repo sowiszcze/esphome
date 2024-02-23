@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-t1eu-3g-01
+  device_id: "87"
+  friendly_name: Living Room Wall Switch
+  area: Living Room
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-t1eu-3g.yaml

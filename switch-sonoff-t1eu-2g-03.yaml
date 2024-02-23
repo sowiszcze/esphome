@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-t1eu-2g-03
+  device_id: "83"
+  friendly_name: Bedroom Wall Switch
+  area: Bedroom
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-t1eu-2g.yaml

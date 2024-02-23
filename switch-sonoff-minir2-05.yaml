@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-minir2-05
+  device_id: "<UNDECIDED>"
+  friendly_name: <UNDECIDED>
+  area: <UNDECIDED>
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-minir2.yaml

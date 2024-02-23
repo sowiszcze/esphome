@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-t1eu-2g-04
+  device_id: "84"
+  friendly_name: Kitchen Wall Switch
+  area: Kitchen
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-t1eu-2g.yaml
