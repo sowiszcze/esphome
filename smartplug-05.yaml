@@ -23,31 +23,32 @@ packages:
       relay_pin: GPIO15
 
 sensor:
-  - id: !extend current
-    filters:
-      - calibrate_linear:
-        - 0.087 -> 0.010
-        - 0.557 -> 0.521
-        - 0.602 -> 0.569
-        - 0.660 -> 0.613
-      - lambda: if (x < 0) return 0; else return x;
-  - id: !extend voltage
-    filters:
-      - calibrate_linear:
-        - 0.0 -> 0.0
-        - 225.8 -> 224.5
-        - 226.0 -> 224.7
-        - 227.1 -> 225.2
-        - 228.6 -> 227.5
-  - id: !extend power
-    filters:
-      - calibrate_linear:
-        - 0 -> 0.58
-        - 49 -> 24.26
-        - 52 -> 25.52
-        - 56 -> 28.02
-        - 68 -> 34.03
-        - 84 -> 42.27
-        - 112 -> 53.77
-        - 140 -> 69.32
-      - lambda: if (x < 0) return 0; else return x;
+  - id: !extend power_meter
+    current:
+      filters:
+        - calibrate_linear:
+          - 0.087 -> 0.010
+          - 0.557 -> 0.521
+          - 0.602 -> 0.569
+          - 0.660 -> 0.613
+        - lambda: if (x < 0) return 0; else return x;
+    voltage:
+      filters:
+        - calibrate_linear:
+          - 0.0 -> 0.0
+          - 225.8 -> 224.5
+          - 226.0 -> 224.7
+          - 227.1 -> 225.2
+          - 228.6 -> 227.5
+    power:
+      filters:
+        - calibrate_linear:
+          - 0 -> 0.58
+          - 49 -> 24.26
+          - 52 -> 25.52
+          - 56 -> 28.02
+          - 68 -> 34.03
+          - 84 -> 42.27
+          - 112 -> 53.77
+          - 140 -> 69.32
+        - lambda: if (x < 0) return 0; else return x;

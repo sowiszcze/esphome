@@ -1,7 +1,7 @@
 substitutions:
   # Customization
   device_name: switch-sonoff-minir2-01
-  device_id: "<UNDECIDED>"
+  device_id: "121"
   friendly_name: <UNDECIDED>
   area: <UNDECIDED>
 

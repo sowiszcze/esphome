@@ -2,6 +2,7 @@ substitutions:
   device_name: uart-eastron-sdm120m
   friendly_name: Home Power Meter
   area: Home
+  device_id: "113"
 
 esphome:
   name: ${device_name}
