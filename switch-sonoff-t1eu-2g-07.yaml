@@ -1,0 +1,10 @@
+substitutions:
+  # Customization
+  device_name: switch-sonoff-t1eu-2g-07
+  device_id: "88"
+  friendly_name: Bathroom Drawer Switch
+  area: Bathroom
+
+packages:
+  smartplug_generic: !include
+    file: ../esphome-elements/device.sonoff-t1eu-2g.yaml
