@@ -7,4 +7,4 @@ substitutions:
 
 packages:
   smartplug_generic: !include
-    file: ../esphome-elements/device.sonoff-t1eu-3g.yaml
+    file: ./esphome-elements/device.sonoff-t1eu-3g.yaml

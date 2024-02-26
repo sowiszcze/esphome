@@ -7,4 +7,4 @@ substitutions:
 
 packages:
   smartplug_generic: !include
-    file: ../esphome-elements/device.sonoff-minir2.yaml
+    file: ./esphome-elements/device.sonoff-minir2.yaml

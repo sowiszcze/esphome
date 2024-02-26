@@ -19,9 +19,9 @@ esp32:
     version: latest
 
 packages:
-  base: !include ../esphome-elements/device.base.yaml
-  logger_off: !include ../esphome-elements/settings.uart-logger-off.yaml
-  hass_time: !include ../esphome-elements/components/general.hass-time.yaml
+  base: !include ./esphome-elements/device.base.yaml
+  logger_off: !include ./esphome-elements/settings.uart-logger-off.yaml
+  hass_time: !include ./esphome-elements/components/general.hass-time.yaml
 
 # UART configuration
 uart:

@@ -7,7 +7,7 @@ substitutions:
 
 packages:
   smartplug_generic: !include
-    file: ../esphome-elements/device.smartplug-generic.yaml
+    file: ./esphome-elements/device.smartplug-generic.yaml
     vars:
       # Device settings and overrides
       current_res: 0.00117
