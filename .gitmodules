@@ -1,0 +1,3 @@
+[submodule "esphome-elements"]
+	path = esphome-elements
+	url = https://github.com/sowiszcze/esphome-elements.git
