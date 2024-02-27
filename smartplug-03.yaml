@@ -6,22 +6,9 @@ substitutions:
   area: Office
 
 packages:
-  smartplug_generic: !include
-    file: ./esphome-elements/device.smartplug-generic.yaml
-    vars:
-      # Device settings and overrides
-      current_res: 0.00117
-      voltage_div: 755
-      max_power: 3450
-      # Device pinout
-      red_led: GPIO0
-      blue_led: GPIO2
-      cf1_pin: GPIO4
-      cf_pin: GPIO5
-      sel_pin: GPIO12
-      button_pin: GPIO13
-      relay_pin: GPIO15
+  smartplug_generic: !include ./esphome-elements/device.smartplug-generic.yaml
 
+# Calibration
 sensor:
   - id: !extend power_meter
     current:
@@ -36,16 +23,16 @@ sensor:
     voltage:
       filters:
         - calibrate_linear:
-          - 0.0 -> 0.0
+          -   0.0 ->   0.0
           - 226.3 -> 226.4
           - 226.8 -> 226.9
     power:
       filters:
         - calibrate_linear:
-          - 0 -> 0.93
-          - 49 -> 25.25
-          - 59 -> 29.68
-          - 74 -> 37.52
+          -   0 ->  0.93
+          -  49 -> 25.25
+          -  59 -> 29.68
+          -  74 -> 37.52
           - 107 -> 48.45
           - 138 -> 61.62
           - 148 -> 74.21
