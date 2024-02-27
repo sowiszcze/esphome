@@ -2,7 +2,7 @@ substitutions:
   # Customization
   device_name: smartplug-05
   device_id: "101"
-  friendly_name: Prusa i3 Mk3S+ Plug
+  friendly_name: Media Center Plug
   area: Living Room
 
 packages:
