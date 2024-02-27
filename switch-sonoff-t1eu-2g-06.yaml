@@ -1,6 +1,6 @@
 substitutions:
   # Customization
-  device_name: switch-sonoff-t1eu-2g-06
+  device_name: esp-50caeb
   device_id: "86"
   friendly_name: Bathroom Inner Wall Switch
   area: Bathroom
@@ -8,3 +8,17 @@ substitutions:
 packages:
   smartplug_generic: !include
     file: ./esphome-elements/device.sonoff-t1eu-2g.yaml
+
+
+# Human-friendly naming
+binary_sensor:
+  - id: !extend touchpad_left
+    name: Side Lights Toggle
+  - id: !extend touchpad_right
+    name: Mirror Backlight Toggle
+
+switch:
+  - id: !extend relay_left
+    name: Side Lights
+  - id: !extend relay_right
+    name: Mirror Backlight

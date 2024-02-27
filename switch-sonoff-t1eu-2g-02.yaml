@@ -1,10 +1,23 @@
 substitutions:
   # Customization
-  device_name: switch-sonoff-t1eu-2g-02
-  device_id: "82"
+  device_name: esp-3082cf
+  device_id: "85"
   friendly_name: Hall Wall Switch
   area: Hall
 
 packages:
   smartplug_generic: !include
     file: ./esphome-elements/device.sonoff-t1eu-2g.yaml
+
+# Human-friendly naming
+binary_sensor:
+  - id: !extend touchpad_left
+    name: Ceiling Lights Toggle
+  - id: !extend touchpad_right
+    name: Corridor Light Toggle
+
+switch:
+  - id: !extend relay_left
+    name: Ceiling Lights
+  - id: !extend relay_right
+    name: Corridor Light

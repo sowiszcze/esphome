@@ -1,10 +1,29 @@
 substitutions:
   # Customization
-  device_name: switch-sonoff-t1eu-3g-01
-  device_id: "87"
+  device_name: esp-5572ee
+  device_id: "82"
   friendly_name: Living Room Wall Switch
   area: Living Room
 
 packages:
   smartplug_generic: !include
     file: ./esphome-elements/device.sonoff-t1eu-3g.yaml
+
+# Human-friendly naming
+binary_sensor:
+  - id: !extend touchpad_left
+    name: Media Center Light Toggle
+  - id: !extend touchpad_middle
+    name: Customizable Toggle
+    disabled_by_default: true
+  - id: !extend touchpad_right
+    name: Couch Light Toggle
+
+switch:
+  - id: !extend relay_left
+    name: Media Center Light
+  - id: !extend relay_middle
+    name: Customizable
+    disabled_by_default: true
+  - id: !extend relay_right
+    name: Couch Light

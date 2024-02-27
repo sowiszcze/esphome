@@ -1,10 +1,23 @@
 substitutions:
   # Customization
-  device_name: switch-sonoff-t1eu-2g-04
-  device_id: "84"
+  device_name: esp-3081e3
+  device_id: "87"
   friendly_name: Kitchen Wall Switch
   area: Kitchen
 
 packages:
   smartplug_generic: !include
     file: ./esphome-elements/device.sonoff-t1eu-2g.yaml
+
+# Human-friendly naming
+binary_sensor:
+  - id: !extend touchpad_left
+    name: Countertop LEDs Toggle
+  - id: !extend touchpad_right
+    name: Ceiling Lights Toggle
+
+switch:
+  - id: !extend relay_left
+    name: Countertop LEDs
+  - id: !extend relay_right
+    name: Ceiling Lights

@@ -1,10 +1,23 @@
 substitutions:
   # Customization
-  device_name: switch-sonoff-t1eu-2g-05
-  device_id: "85"
+  device_name: esp-308255
+  device_id: "83"
   friendly_name: Bathroom Outer Wall Switch
   area: Bathroom
 
 packages:
   smartplug_generic: !include
     file: ./esphome-elements/device.sonoff-t1eu-2g.yaml
+
+# Human-friendly naming
+binary_sensor:
+  - id: !extend touchpad_left
+    name: Ceiling Lights Toggle
+  - id: !extend touchpad_right
+    name: Mirror Lightbulb Toggle
+
+switch:
+  - id: !extend relay_left
+    name: Ceiling Lights
+  - id: !extend relay_right
+    name: Mirror Lightbulb
