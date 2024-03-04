@@ -20,7 +20,7 @@ esp32:
 
 packages:
   base: !include ./esphome-elements/device.base.yaml
-  logger_off: !include ./esphome-elements/settings.uart-logger-off.yaml
+  logger_off: !include ./esphome-elements/components/logger.disabled-uart.yaml
   hass_time: !include ./esphome-elements/components/general.hass-time.yaml
 
 # UART configuration
