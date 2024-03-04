@@ -15,6 +15,7 @@ binary_sensor:
     name: Media Center Light Toggle
   - id: !extend touchpad_middle
     name: Customizable Toggle
+    on_press: !remove
     disabled_by_default: true
   - id: !extend touchpad_right
     name: Couch Light Toggle
