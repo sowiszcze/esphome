@@ -6,8 +6,7 @@ substitutions:
   area: Kitchen
 
 packages:
-  smartplug_generic: !include
-    file: ./esphome-elements/device.sonoff-t1eu-2g.yaml
+  device: !include ./esphome-elements/device.sonoff-t1eu-2g.yaml
 
 # Human-friendly naming
 binary_sensor:
