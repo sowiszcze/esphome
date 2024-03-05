@@ -1,4 +1,4 @@
-FILES = `ls -1p | grep -iE -e ".*\.ya?ml" | xargs echo`
+FILES = `ls -1p | grep -iE -e ".*\.ya?ml$$" | xargs echo`
 
 validate:
 	@echo Action: Validate the configuration and spit it out.
