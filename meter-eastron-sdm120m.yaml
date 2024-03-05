@@ -8,8 +8,9 @@ esphome:
   name: ${device_name}
   friendly_name: ${friendly_name}
   area: ${area}
+  comment: Eastreon SDM120M Power Meter through Modbus-UART-RS485
   project:
-    name: sowiszcze.sdm120m-meter
+    name: "sowiszcze.sdm120m_powermeter"
     version: dev
 
 esp32:
