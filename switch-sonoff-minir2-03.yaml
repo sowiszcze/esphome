@@ -6,5 +6,5 @@ substitutions:
   area: <UNDECIDED>
 
 packages:
-  smartplug_generic: !include
+  sonoff_minir2: !include
     file: ./esphome-elements/device.sonoff-minir2.yaml

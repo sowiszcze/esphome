@@ -2,9 +2,9 @@ substitutions:
   # Customization
   device_name: switch-sonoff-minir2-05
   device_id: "125"
-  friendly_name: <UNDECIDED>
-  area: <UNDECIDED>
+  friendly_name: Star
+  area: Living Room
 
 packages:
-  smartplug_generic: !include
+  sonoff_minir2: !include
     file: ./esphome-elements/device.sonoff-minir2.yaml
