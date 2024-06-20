@@ -11,12 +11,12 @@ packages:
 # Human-friendly naming
 binary_sensor:
   - id: !extend touchpad_left
-    name: Ceiling Lights Toggle
-  - id: !extend touchpad_right
     name: Corridor Light Toggle
+  - id: !extend touchpad_right
+    name: Ceiling Lights Toggle
 
 switch:
   - id: !extend relay_left
-    name: Ceiling Lights
+    name: Corridor Lights
   - id: !extend relay_right
-    name: Corridor Light
+    name: Ceiling Light
