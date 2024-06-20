@@ -17,6 +17,6 @@ binary_sensor:
 
 switch:
   - id: !extend relay_left
-    name: Corridor Lights
+    name: Corridor Light
   - id: !extend relay_right
-    name: Ceiling Light
+    name: Ceiling Lights
