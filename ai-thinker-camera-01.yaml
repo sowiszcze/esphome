@@ -1,0 +1,9 @@
+substitutions:
+  # Customization
+  device_name: ai-thinker-camera-01
+  device_id: "114"
+  friendly_name: Judas cam
+  area: Hall
+
+packages:
+  esp32_cam: !include ./esphome-elements/ai-thinker-camera.yaml
