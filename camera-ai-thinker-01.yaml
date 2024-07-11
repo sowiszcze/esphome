@@ -6,4 +6,4 @@ substitutions:
   area: Hall
 
 packages:
-  esp32_cam: !include ./esphome-elements/ai-thinker-camera.yaml
+  esp32_cam: !include ./esphome-elements/device.ai-thinker-camera.yaml
